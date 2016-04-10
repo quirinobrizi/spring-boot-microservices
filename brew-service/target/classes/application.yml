@@ -1,0 +1,15 @@
+# Spring properties
+spring:
+  application:
+    name: brew-service
+
+# Discovery Server Access
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:10000/eureka/
+
+# HTTP Server
+server:
+  port: 10002

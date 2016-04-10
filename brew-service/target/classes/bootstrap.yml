@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: brew-service
+  cloud:
+    config:
+      uri: http://configuration-service:10003
+      failFast: true
+      discovery:
+        enabled: true
+        serviceId: configuration-service
+        
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:10000/eureka/
