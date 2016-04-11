@@ -16,6 +16,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
+		<docker.image.prefix>codesketch.eu</docker.image.prefix>
+		<docker.base.image>java:8-jre-alpine</docker.base.image>
 	</properties>
 
 	<dependencies>
@@ -46,6 +48,15 @@
 	</dependencies>
 
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>0.14.2</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -55,7 +66,7 @@
 	</build>
 
 	<modules>
-		<module>discovery-server</module>
+		<module>discovery-service</module>
 		<module>account-service</module>
 		<module>commons-message</module>
 		<module>brew-service</module>

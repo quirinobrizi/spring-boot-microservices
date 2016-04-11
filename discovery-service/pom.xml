@@ -1,18 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>eu.codesketch.ws</groupId>
 		<artifactId>codesketch</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>configuration-service</artifactId>
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
-		</dependency>
-	</dependencies>
+	<artifactId>discovery-service</artifactId>
+	<name>Discovery server</name>
+	<description>Eureka based application that allows easy discovery for microservices</description>
 
 	<build>
 		<plugins>
@@ -28,7 +25,7 @@
 									<tag>${project.version}</tag>
 									<tag>latest</tag>
 								</tags>
-								<from>${docker.image.prefix}/${docker.base.image}</from>
+								<from>${docker.base.image}</from>
 								<maintainer>quirino.brizi@gmail.com</maintainer>
 								<ports>
 									<port>8079</port>

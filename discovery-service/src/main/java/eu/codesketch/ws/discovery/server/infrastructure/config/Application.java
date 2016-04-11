@@ -1,7 +1,7 @@
 /**
  * 
  */
-package eu.codesketch.ws.dioscovery.server.infrastructure.config;
+package eu.codesketch.ws.discovery.server.infrastructure.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
