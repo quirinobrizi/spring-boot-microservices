@@ -32,7 +32,7 @@
 									<tag>${project.version}</tag>
 									<tag>latest</tag>
 								</tags>
-								<from>${docker.image.prefix}/${docker.base.image}</from>
+								<from>${docker.base.image}</from>
 								<maintainer>quirino.brizi@gmail.com</maintainer>
 								<ports>
 									<port>8079</port>

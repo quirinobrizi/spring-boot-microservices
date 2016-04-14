@@ -68,7 +68,6 @@
 	<modules>
 		<module>discovery-service</module>
 		<module>account-service</module>
-		<module>commons-message</module>
 		<module>brew-service</module>
 		<module>configuration-service</module>
 	</modules>
