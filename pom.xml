@@ -22,6 +22,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>eu.codesketch.spring.cloud</groupId>
+			<artifactId>spring-cloud-extensions</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
 			<!-- Setup Spring Boot -->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

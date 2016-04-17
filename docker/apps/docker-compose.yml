@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  account:
+    image: codesketch.eu/account-service
+    expose:
+      - 10001
+  
+  brew:
+    image: codesketch.eu/brew-service
+    ports:
+      - 10002:10002
