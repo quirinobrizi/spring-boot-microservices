@@ -11,7 +11,7 @@ services:
     container_name: configuration
     image: codesketch.eu/configuration-service
     environment:
-      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://192.168.1.70:10000/eureka/
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://192.168.1.70:10000/eureka/
       - SPRING_PROFILES_ACTIVE=""
       - SPRING_CLOUD_CONFIG_SERVER_GIT_URI=https://github.com/quirinobrizi/spring-boot-microservices.git
     ports:

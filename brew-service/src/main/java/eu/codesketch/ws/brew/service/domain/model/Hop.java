@@ -4,7 +4,7 @@
 package eu.codesketch.ws.brew.service.domain.model;
 
 /**
- * V.O.
+ * Entity.
  * 
  * @author quirino
  *

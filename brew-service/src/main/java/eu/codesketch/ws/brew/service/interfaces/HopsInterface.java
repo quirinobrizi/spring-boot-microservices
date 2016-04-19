@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import eu.codesketch.ws.commons.message.Message;
+import eu.codesketch.ws.commons.message.brew.CreateHopRequestMessage;
 
 /**
  * @author quirino
@@ -28,4 +29,10 @@ public interface HopsInterface {
         value = HttpStatus.OK)
     @ResponseBody
     Message getAllHops();
+
+    @RequestMapping(
+        method = RequestMethod.POST)
+    @ResponseStatus(
+        value = HttpStatus.CREATED)
+    void addHop(CreateHopRequestMessage message);
 }

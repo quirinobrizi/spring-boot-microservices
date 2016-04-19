@@ -3,17 +3,17 @@
  */
 package eu.codesketch.ws.brew.service.interfaces;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import eu.codesketch.ws.brew.service.app.HopService;
+import eu.codesketch.ws.brew.service.interfaces.translator.HopMessageTranslator;
+import eu.codesketch.ws.brew.service.interfaces.translator.HopTranslator;
 import eu.codesketch.ws.commons.message.Message;
-import eu.codesketch.ws.commons.message.account.GotAccountResponseMessage;
+import eu.codesketch.ws.commons.message.brew.CreateHopRequestMessage;
 import eu.codesketch.ws.commons.message.brew.GotHopsResponseMessage;
-import eu.codesketch.ws.commons.message.brew.HopMessage;
 
 /**
  * @author quirino
@@ -26,6 +26,13 @@ public class DefaultHopsInterface implements HopsInterface {
     @LoadBalanced
     private RestTemplate restTemplate;
 
+    @Autowired
+    private HopService hopService;
+    @Autowired
+    private HopTranslator hopTranslator;
+    @Autowired
+    private HopMessageTranslator hopMessageTranslator;
+
     /*
      * (non-Javadoc)
      * 
@@ -34,10 +41,16 @@ public class DefaultHopsInterface implements HopsInterface {
     @Override
     public Message getAllHops() {
 
-        GotAccountResponseMessage accountResponseMessage = this.restTemplate.getForObject(
-                "http://account-service/accounts/1", GotAccountResponseMessage.class);
-        System.out.println(accountResponseMessage.getAccount());
-        return new GotHopsResponseMessage(Arrays.asList(new HopMessage("Goldings")));
+        // GotAccountResponseMessage accountResponseMessage =
+        // this.restTemplate.getForObject(
+        // "http://account-service/accounts/1",
+        // GotAccountResponseMessage.class);
+        return new GotHopsResponseMessage(hopTranslator.translate(hopService.retrieveAllHops()));
+    }
+
+    @Override
+    public void addHop(CreateHopRequestMessage message) {
+        hopService.createNewHop(hopMessageTranslator.translate(message.getHop()));
     }
 
 }
